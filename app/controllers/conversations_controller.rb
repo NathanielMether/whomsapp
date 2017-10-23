@@ -5,7 +5,9 @@ class ConversationsController < ApplicationController
   # GET /conversations
   # GET /conversations.json
   def index
-    @conversations = Conversation.all
+    as1 = Conversation.where(user1: current_user)
+    as2 = Conversation.where(user2: current_user)
+    @conversations = as1 | as2
   end
 
   # GET /conversations/1
@@ -26,6 +28,7 @@ class ConversationsController < ApplicationController
   # POST /conversations.json
   def create
     @conversation = Conversation.new(conversation_params)
+    @conversation.user1 = current_user
 
     respond_to do |format|
       if @conversation.save
@@ -70,6 +73,6 @@ class ConversationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def conversation_params
-      params.require(:conversation).permit(:user1_id, :user2_id)
+      params.require(:conversation).permit(:user2_id)
     end
 end

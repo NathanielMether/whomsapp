@@ -7,9 +7,9 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create! [
-  { email: 'one@example.com', password: 'password' },
-  { email: 'two@example.com', password: 'password' },
-  { email: 'three@example.com', password: 'password' },
-  { email: 'four@example.com', password: 'password' },
-  { email: 'five@example.com', password: 'password' },
+  { email: 'one@example.com', password: 'password', name: 'user 1' },
+  { email: 'two@example.com', password: 'password', name: 'user 2' },
+  { email: 'three@example.com', password: 'password', name: 'user 3'},
+  { email: 'four@example.com', password: 'password', name: 'user 4' },
+  { email: 'five@example.com', password: 'password', name: 'user 5' },
 ]
